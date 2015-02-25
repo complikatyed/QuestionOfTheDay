@@ -11,28 +11,12 @@ html(lang='en-US')
 
       .container
         h1 Chat-Tastic
-
-        .chatform
           form
-            input(type="text" class="poster" placeholder='Who are you?', required)
-            input(type="text" class="chat" placeholder='Talk to me!', required)
-            input(type="submit" class="postIt" value='Post it, yo!')
+            input(type="text", class="chatGuy", placeholder="Who are you?")
+            input(type="text", class="chatText", placeholder="Talk to me!")
+            input(type="submit", class="postIt", value="Post it, yo!")
 
         .chatbox
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
       // build:js js/vendor.min.js
       // bower:js
@@ -42,3 +26,8 @@ html(lang='en-US')
       // build:js js/main.min.js
       script(src="/scripts/index.js")
       // endbuild
+
+
+
+
+

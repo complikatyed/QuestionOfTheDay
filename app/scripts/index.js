@@ -1,39 +1,29 @@
-'use strict';
+'use strict'
 
-var fb = new Firebase('https://groovychat.firebaseio.com/'),
-    FIREBASE_URL = 'https://groovychat.firebaseio.com/',
-    $postIt     = $('.postIt');
+var fb = new Firebase('https://groovychat.firebaseio.com/');
 
-$(document).ready(function(){
-  $postIt.click(postChat);
-  fillChatBox();
+$('body').on('click', '.postIt', function(event) {
+	event.preventDefault();
+
+	// get name and message from input boxes
+	var chatGuy =  $('.chatGuy').val();
+	var chatText = $('.chatText').val();
+
+	// send chatText to firebase
+	fb.push({name: chatGuy, text: chatText});
+
+
+	$('.chatText').val('');
+	location.reload(true);
+
 });
 
-function postChat(event) {
-  event.preventDefault();
-
-  var $chat  = $('.chat').val(),
-      $poster = $('.poster').val(),
-      text  = { name: $poster, text: $chat },
-      data  = JSON.stringify(text);
-
-  $.post(FIREBASE_URL + '/messages.json', data, function(res){
-      fillChatBox(res);
-  });
-}
-
-function fillChatBox() {
-  $.get(FIREBASE_URL + '/messages.json', function(data){
-    Object.keys(data).forEach(function(uuid){
-      chatBox(data[uuid]);
+// testing
+fb.once('value', function (res){
+    var data = res.val();
+    Object.keys(data).forEach(function (uuid) {
+    	$('.chatbox').prepend('<p><em>' + data[uuid].name + '</em>: ' + data[uuid].text + '</p>');
     });
-  });
-}
-
-function chatBox(chat) {
-  var $message = $('<p><em>' + chat.name + '</em>' + ": " + chat.text + '</p>');
-  $('.chatbox').prepend($message);
-}
-
+  })
 
 
