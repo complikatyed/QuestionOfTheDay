@@ -14,7 +14,7 @@ $('body').on('click', '.postIt', function(event) {
 
 	$('.chatText').val('');
     $('.chatGuy').val('');
-	//location.reload(true);
+	location.reload(true);
 
 });
 
