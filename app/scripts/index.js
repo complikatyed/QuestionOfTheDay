@@ -12,18 +12,12 @@ $('body').on('click', '.postIt', function(event) {
 	// send chatText to firebase
 	fb.push({name: chatGuy, text: chatText});
 
-
 	$('.chatText').val('');
 	location.reload(true);
 
 });
 
-// testing
-fb.once('value', function (res){
-    var data = res.val();
-    Object.keys(data).forEach(function (uuid) {
-    	$('.chatbox').prepend('<p><em>' + data[uuid].name + '</em>: ' + data[uuid].text + '</p>');
-    });
-  })
-
-
+fb.limitToLast(20).on("child_added", function(snapshot) {
+    var newChat = snapshot.val();
+    $('.chatbox').prepend('<p><em>' + newChat.name + '</em>: ' + newChat.text + '</p>');
+});
