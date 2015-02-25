@@ -13,11 +13,12 @@ $('body').on('click', '.postIt', function(event) {
 	fb.push({name: chatGuy, text: chatText});
 
 	$('.chatText').val('');
-	location.reload(true);
+    $('.chatGuy').val('');
+	//location.reload(true);
 
 });
 
 fb.limitToLast(20).on("child_added", function(snapshot) {
     var newChat = snapshot.val();
-    $('.chatbox').prepend('<p><em>' + newChat.name + '</em>: ' + newChat.text + '</p>');
+    $('.chatbox').prepend('<p><em>' + newChat.name + '</em>' + ':   ' + newChat.text + '</p>');
 });

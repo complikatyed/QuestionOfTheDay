@@ -1,5 +1,46 @@
 @import '../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
+body {
+	background-color: #9F81F7;
+}
+
 h1 {
-  color: steelblue;
+  color: #29088A;
+  font-family: Georgia, serif;
+}
+
+h2 {
+	color: white;
+}
+
+h3 {
+	font-family: Georgia, serif;
+	font-style: italic;
+	color: #fff;
+	padding: 5px;
+}
+
+form {
+	font-family: Georgia, serif;
+	margin: 25px;
+}
+
+.chatGuy {
+	width: 150px;
+}
+
+.chatText {
+	width: 400px;
+}
+
+.postIt {
+	width: 100px;
+}
+
+.chatbox {
+	margin: 25px;
+	background-color: #fff;
+	padding: 20px 50px;
+	font-family: Georgia, serif;
+	color: #29088A;
 }

@@ -10,13 +10,19 @@ html(lang='en-US')
       <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
       .container
-        h1 Chat-Tastic
+        h1 Today's Question Is...
+        h2 "What's the nicest thing anyone has ever said to you?"
+        p
           form
-            input(type="text", class="chatGuy", placeholder="Who are you?")
-            input(type="text", class="chatText", placeholder="Talk to me!")
+            input(type="text", class="chatGuy", placeholder="Who are you, anyway?")
+            input(type="text", class="chatText", placeholder="Answer the question!")
             input(type="submit", class="postIt", value="Post it, yo!")
 
+        .answerHead
+          h3 Here are twenty most recent answers:
+
         .chatbox
+
 
       // build:js js/vendor.min.js
       // bower:js
